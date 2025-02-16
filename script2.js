@@ -44,7 +44,7 @@ const correctAnswers = [
   updateCheckButtonText();
   
   const checkAnswers = (inputs) => {
-    const alphanumericRegex = /[a-zA-Z0-9]/g;
+    const alphanumericRegex = /[a-zA-Z0-9+]/g;
     let correctCount = 0;
   
     inputs.forEach(input => {
