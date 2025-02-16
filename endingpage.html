@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over - Sudoku</title>
+    <style>
+        /* Apply a background image to the entire page */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-image: url('/bg.jpg'); /* Background image for the page */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.ending-container {
+  background-color: rgba(255, 255, 255, 0.8);  /* Slight transparency for the container */
+  border-radius: 10px;
+  padding: 30px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.restart-btn, .home-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 48%;  /* Ensure buttons fit side by side */
+}
+
+.restart-btn:hover, .home-btn:hover {
+  background-color: #0056b3;
+}
+
+.restart-btn:active, .home-btn:active {
+  background-color: #003d7a;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="ending-container">
+        <div class="content">
+            <h1>Congratulations!</h1>
+            <p>You have completed all the levels of Sudoku!</p>
+            <p>Great job! Your logical thinking skills are top-notch. Keep practicing to improve your skills even more.</p>
+
+            <div class="buttons">
+                <button class="restart-btn" onclick="window.location.href='sudoku.html'">Restart Game</button>
+                <button class="home-btn" onclick="window.location.href='index.html'">Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

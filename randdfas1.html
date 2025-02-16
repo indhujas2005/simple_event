@@ -1,0 +1,321 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>level1</title> 
+  <style> 
+/* Basic reset for margin and padding */
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+} 
+
+/* Apply a background image to the entire page */
+body {
+  margin: 0;  /* Remove default margin */
+  padding: 0;  /* Remove default padding */
+  height: 100vh;  /* Full viewport height */
+  background-image: url('bg1.jpg');  /* Path to your background image */
+  background-size: cover;  /* Ensure the image covers the entire viewport */
+  background-position: center;  /* Position the image at the center */
+  background-attachment: fixed;  /* Make the background fixed during scrolling */
+  background-repeat: no-repeat;  /* Prevent repeating the image */
+}
+
+/* Style the parent container */
+.container {
+  display: flex; /* Arrange children (questions and grid) horizontally */
+  flex-direction: row; /* Horizontal alignment */
+  justify-content: space-between; /* Space out the elements */
+  align-items: flex-start; /* Align items at the top */
+  gap: 20px; /* Space between the questions and the grid */
+  margin: 20px;
+  z-index: 1;  /* Ensure this content stays above the background */
+}
+
+/* Additional styles for questions and grid remain unchanged */
+
+/* Rest of your CSS styling */
+
+/* Questions section styling */
+.questions {
+  flex: 2; /* Takes up 3/4 of the container width */
+  background-color: #f9f9f9; /* Optional: Background for clarity */
+  padding: 10px;
+  border: 1px solid #ccc; /* Optional: Border for clarity */
+  border-radius: 5px;
+}
+
+/* Sudoku grid section styling */
+.sudoku-container {
+  flex: 3; /* Takes up 1/4 of the container width */
+  display: flex;
+  flex-direction: column; /* Keep grid and buttons stacked */
+  align-items: center; /* Center-align the grid and buttons horizontally */
+  gap: 20px; /* Add space between grid and buttons */
+}
+
+/* Style the grid container */
+.sudoku-grid { 
+  display: grid; 
+  grid-template-columns: repeat(10, 50px); /* 10 columns */ 
+  grid-template-rows: repeat(8, 50px);    /* 8 rows */ 
+  gap: 2px; /* Space between cells */ 
+  margin: 0 auto; /* Center grid within its container */
+  max-width: 530px; 
+} 
+
+/* Style for each grid cell */
+.sudoku-cell { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  border: 1px solid #ccc; 
+  background-color: white; 
+}
+
+/* Style for input elements in each cell */
+.sudoku-input { 
+  width: 40px; 
+  height: 40px; 
+  font-size: 20px; 
+  text-align: center; 
+  border: none; 
+  outline: none; 
+  background-color: transparent; 
+}
+
+.sudoku-input.correct {
+  background-color: lightgreen;
+}
+
+.sudoku-input.incorrect {
+  background-color: rgb(218, 77, 77);
+}
+
+/* Style for read-only cells */
+.readonly { 
+  background-color: black; 
+}
+
+/* Style the submit container */
+.submit-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Style for buttons */
+#submit-btn, #check-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 5px;
+}
+
+#submit-btn:hover, #check-btn:hover {
+  background-color: #0056b3;
+}
+
+#submit-btn:active, #check-btn:active {
+  background-color: #003d7a;
+}
+
+/* Style for the timer */
+#timer {
+  position: fixed; /* Fix the timer to the top-left corner */
+  top: 10px; /* Distance from the top of the screen */
+  left: 10px; /* Distance from the left of the screen */
+  display: inline-block; /* Ensure the timer only takes up the necessary space */
+  font-size: 18px; /* Adjust the font size as needed */
+  color: #333; /* Set the text color */
+  background-color: transparent; /* Optional: Remove background */
+  padding: 0; /* Remove padding to keep it minimal */
+  margin: 0; /* Remove default margins */
+  text-align: left; /* Align the text to the left */
+}
+
+/* Element | http://127.0.0.1:5500/level1.html */
+
+#timer {
+  margin-bottom: -4px;
+}
+
+/* Element | http://127.0.0.1:5500/level1.html */
+
+.questions {
+  margin-top: 36px;
+}
+
+/* Element | http://127.0.0.1:5500/level1.html */
+
+.sudoku-container {
+  margin-top: 100px;
+}
+
+
+/* Element | http://127.0.0.1:5500/level2.html */
+
+.questions {
+  margin-left: 116px;
+}
+
+
+  </style> 
+</head> 
+<body> 
+  <div id="result-display" style="display: none; text-align: right; font-size: 18px; font-weight: bold; margin-top: 10px; padding: 5px;"></div>
+<div class="container">
+  <!-- Add this div to display the timer on the page -->
+   <div id="timer">Time Left: 10:00</div>
+  
+
+
+  
+   <div class="questions">
+     <u><h3>QUESTION:</h3> 
+      <br><h4>LEFT TO RIGHT</h4></U><br> 
+      <p> 
+            
+           <br>1.A python program can be saved in the____ mode.<br> 
+            
+           <br>3.____refers to the grammatical rules of any programming language.<br> 
+            
+                       
+           <br> 10.How many storage specifies are there in a c++_____.<br>   
+            
+           <br>4.Standard mapping datatype in python called ______.<br> </p> 
+ 
+           
+   <u> <br><h4>RIGHT TO LEFT</h4></U><br> 
+ 
+   <br>6.what is the output of print("hello")?  <br> 
+ 
+     <br><u><h4>TOP TO BOTTOM </h4></u><br> 
+        
+       <p> 
+         <br>7.what is the output of the print(4*5)? <br> 
+ 
+         
+        <br>8.How many data type in java________.  <br> 
+         
+  <br><u><h4>BOTTOM TO TOP</h4></u><br> 
+ 
+   <br>2.When python is dealing with identifier, is it case sensitive?<br>  
+   
+ <br>9.What will be o/p of the following python code.?<br>  
+             i=1  <br>            
+             while true;<br>     
+             if %3==0<br>   
+             break <br>        
+             print (i) <br> 
+             i =i+1<br>   
+ 
+<br>5.Java program written to run on WWW are called____.<br>  
+    </p>
+     </div>
+     <div class="sudoku-container">
+   <form class="sudoku-grid"> 
+<!-- Create a 10x8 grid of input cells for Sudoku --> 
+<!-- Read-only cells can have the 'readonly' class, and input cells are interactive --> 
+<!-- First row (10 columns) --> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="0" maxlength="3" value="1." /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="1" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="2" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="3" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="4" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="5" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="6" maxlength="3" value="8." /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="7" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="8" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="9" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="10" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="11" maxlength="3" value="3." /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="12" maxlength="3" value="2." /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="13" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="14" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="15" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="16" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="17" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="18" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="19" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="20" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="21" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="22" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="23" maxlength="4" value="10." /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="24" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="25" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="26" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="27" maxlength="3" value="7." /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="28" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="29" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="30" maxlength="3" value="9." /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="31" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="32" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="33" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="34" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="35" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="36" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="37" maxlength="3" value="6." /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly " maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly " maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="38" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input readonly" maxlength="1" readonly /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="39" maxlength="3" value="4." /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="40" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="41" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="42" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input " data-index="43" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="44" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="45" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="46" maxlength="3" value="5." /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="47" maxlength="1" /></div> 
+<div class="sudoku-cell"><input type="text" class="sudoku-input" data-index="48" maxlength="1" /></div>
+
+ 
+ </form> 
+ <div class="submit-container">
+  <button id="submit-btn">Submit</button>
+  <button id="check-btn">Check (10 left)</button>
+</div>
+ </div>
+
+</div>
+<script src="script1.js">
+</script>
+</body> 
+</html>

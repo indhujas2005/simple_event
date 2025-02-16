@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cross_tech</title>
+    <style>
+    /* Apply a background image to the entire page */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+    
+    body {
+      background-image: url('/bg.jpg'); /* Background image for the page */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .landing-container {
+      background-color: rgba(255, 255, 255, 0.8);  /* Slight transparency for the container */
+      border-radius: 10px;
+      padding: 30px;
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    
+    .rules {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+    
+    .rules ul {
+      text-align: left;
+      margin-left: 20px;
+    }
+    
+    .start-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .start-btn:hover {
+      background-color: #0056b3;
+    }
+    
+    .start-btn:active {
+      background-color: #003d7a;
+    }
+</style>    
+</head>
+<body>
+
+    <div class="landing-container">
+        <div class="content">
+            <h1>Welcome to MIND_MYST!</h1>
+            <p class="rules">
+                Crossword Puzzle is a word-based puzzle game where the goal is to complete a grid with correct answers. The rules are as follows:
+                <ul>
+                    <li><strong>Single Session Only:</strong> You must complete the puzzle in one session. Refreshing or leaving the page will result in <strong>disqualification</strong>.</li>
+                    <li><strong>Timer:</strong> You have <strong>10 minutes (600 seconds)</strong> to complete each level. Once the timer ends, the "Check" and "Submit" buttons will be disabled.</li>
+                    <li><strong>Check Attempts:</strong> You can check your answers up to <strong>10 times</strong> during the game. Each check deducts from the remaining attempts, so use them wisely. The "Check" button will highlight <strong>correct answers in green</strong> and <strong>incorrect answers in red</strong> to guide your review.</li>
+                    <li><strong>Answer Validation:</strong> Enter your answers in the input boxes provided. Ensure your answers are correct before submitting. Incorrect entries will be highlighted for review.</li>
+                    <li><strong>Submission:</strong> Press the "Submit" button to finalize your answers. Only submit if you’re confident that all answers are correct. Incomplete or incorrect submissions will not advance to the next level.</li>
+                    <li><strong>No External Help:</strong> The puzzle must be solved independently without external assistance.</li>
+                    <li><strong>Disqualification Warning:</strong> If you attempt to reload the page, leave the game, or refresh, you will <strong>automatically forfeit the game</strong>.</li>
+                    <li><strong>Progression:</strong> Solve the puzzle correctly within the time limit to proceed to the next level. Incomplete or incorrect puzzles will require further review before submission.</li>
+                    <li><strong>Respect Time and Attempts:</strong> Keep track of the remaining time and your check attempts, as these are limited resources.</li>
+                    <li><strong>Enjoy and Play Fair:</strong> This is a test of your skills and attention to detail. Compete fairly and have fun!</li>
+                </ul>
+                The game is complete when all answers are correct. Have fun and challenge your word-solving skills!
+            </p>
+<button class="start-btn" onclick="window.location.href='randdfas1.html'">Start Game</button>
+        </div>
+    </div>
+            
+                
+</body>
+</html>
